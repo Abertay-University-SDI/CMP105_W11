@@ -14,6 +14,6 @@ public:
 	// Check collision with box and point. Returns true if collision occurs.
 	static bool checkBoundingBox(GameObject* s1, sf::Vector2i s2);
 	// Check bounding circle collision. Returns true if collision occurs.
-	static bool checkBoundingSphere(GameObject* sp1, GameObject* sp2);
+	static bool checkBoundingCircle(GameObject* sp1, GameObject* sp2);
 
 };

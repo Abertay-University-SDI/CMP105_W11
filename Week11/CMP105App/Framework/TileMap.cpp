@@ -13,9 +13,9 @@ TileMap::~TileMap()
 // Uses window pointer to render level/section. Tile by Tile.
 void TileMap::render(sf::RenderWindow* window)
 {
-	for (int i = 0; i < (int)level.size(); i++)
+	for (int i = 0; i < (int)levelAssets.size(); i++)
 	{
-		window->draw(level[i]);
+		window->draw(levelAssets[i]);
 	}
 }
 
@@ -32,10 +32,10 @@ void TileMap::setTileSet(std::vector<GameObject> ts)
 }
 
 // Receives and array of integers and map dimensions representing the map (where and what tiles to place).
-void TileMap::setTileMap(std::vector<int> tm, sf::Vector2u mapDimensions)
+void TileMap::setTileMap(std::vector<int> tm, sf::Vector2u _mapDimensions)
 {
 	tileMap = tm;
-	mapSize = mapDimensions;
+	mapDimensions = _mapDimensions;
 }
 
 // Once provided with the map and tile set, builds the level, creating an array of tile sprites positioned based on the map. Ready to render.
@@ -48,11 +48,11 @@ void TileMap::buildLevel()
 
 		for (int i = 0; i < (int)tileMap.size(); i++)
 		{
-			x = i % mapSize.x;
-			y = (int)floor(i / mapSize.x);
+			x = i % mapDimensions.x;
+			y = (int)floor(i / mapDimensions.x);
 			tileSet[tileMap[i]].setPosition(position.x + (x * tileSize.x), position.y + (y * tileSize.y));
-			level.push_back(tileSet[tileMap[i]]);
-			level[i].setTexture(&texture);
+			levelAssets.push_back(tileSet[tileMap[i]]);
+			levelAssets[i].setTexture(&texture);
 		}
 	}
 }

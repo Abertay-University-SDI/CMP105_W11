@@ -31,7 +31,7 @@ bool Collision::checkBoundingBox(GameObject* s1, sf::Vector2i s2)
 }
 
 // Check bounding circle collision. Returns true if collision occurs.
-bool Collision::checkBoundingSphere(GameObject* s1, GameObject* s2)
+bool Collision::checkBoundingCircle(GameObject* s1, GameObject* s2)
 {
 	// Get radius and centre of sprites.
 	float radius1 = s1->getSize().x / 2;
